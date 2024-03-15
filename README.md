@@ -7,7 +7,7 @@ For IGIT Sarang Horizon hackathon. Team members: Pritam Acharya, Smrutiprava Das
    tutor offers users the opportunity to take a quiz to assess their understanding. The quiz feature presents a set of questions related to the topic, and users 
    can input their answers through the chat interface.
  - Problem statement and intended audience.
-   Problem statement: Education (with AI)
+   Education (with AI) and intended audience are school students.
    
  - Setup instructions, dependencies, usage examples.
    
