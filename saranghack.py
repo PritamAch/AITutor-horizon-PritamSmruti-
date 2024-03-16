@@ -114,7 +114,7 @@ openai.api_key = "pk-dpqdJpwNUzoOxhxxEhWfrzHqkrwDsWbTLqDyPJHltXpBZXaj"
 
 # Initialize tkinter
 root = tk.Tk()
-root.title("Question Generation")
+root.title("Virtual Teacher")
 
 history = [{"role": "user", "content": "generate the response less than 50 words unless asked otherwise"},
            {"role": "assistant", "content": "okay"}]
