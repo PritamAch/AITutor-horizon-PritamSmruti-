@@ -4,7 +4,6 @@ import pygame
 from io import BytesIO
 import openai
 import speech_recognition as sr
-import gtts as gTTS
 from threading import Thread
 from gtts import gTTS
 
@@ -85,7 +84,7 @@ def process_input(message):
     response = chat_completion.choices[0].message.content
     history.append({"role": "assistant", "content": response})
 
-    append_message("Assistant:\n " + response, "green")
+    append_message("AI Teacher:\n " + response, "green")
     if tts_enabled:
         Thread(target=play_text, args=(response,)).start()
 
@@ -115,6 +114,8 @@ openai.api_key = "pk-dpqdJpwNUzoOxhxxEhWfrzHqkrwDsWbTLqDyPJHltXpBZXaj"
 # Initialize tkinter
 root = tk.Tk()
 root.title("Virtual Teacher")
+root.configure(bg="#e6e6fa")  # Set light purpleish background color
+root.iconbitmap("logo.ico")
 
 history = [{"role": "user", "content": "generate the response less than 50 words unless asked otherwise"},
            {"role": "assistant", "content": "okay"}]
@@ -125,22 +126,22 @@ is_question_asked = False
 
 # GUI 
 
-history_text = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=50, height=20)
+history_text = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=50, height=20, bg="#f0f8ff", fg="black")  # Set light blue background for history text
 history_text.pack(padx=10, pady=10)
 
-input_text = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=50, height=5)
+input_text = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=50, height=5, bg="#f0f8ff", fg="black")  # Set light blue background for input text
 input_text.pack(padx=10, pady=10)
 
-mic_button = Button(root, text="Start Microphone", command=toggle_mic, bg="green")
+mic_button = Button(root, text="Start Microphone", command=toggle_mic, bg="#9370DB", fg="white")  # Set dark purple background for button
 mic_button.pack(pady=5)
 
-tts_button = Button(root, text="Disable TTS", command=toggle_tts)
+tts_button = Button(root, text="Disable TTS", command=toggle_tts, bg="#9370DB", fg="white")  # Set dark purple background for button
 tts_button.pack(pady=5)
 
-send_button = Button(root, text="Send", command=send_message)
+send_button = Button(root, text="Send", command=send_message, bg="#9370DB", fg="white")  # Set dark purple background for button
 send_button.pack(pady=5)
 
-question_button = Button(root, text="Generate Questions", command=generate_questions)
+question_button = Button(root, text="Generate Questions", command=generate_questions, bg="#9370DB", fg="white")  # Set dark purple background for button
 question_button.pack(pady=5)
 
 # Start microphone input after 1 second
